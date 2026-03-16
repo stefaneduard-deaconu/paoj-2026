@@ -9,14 +9,16 @@ package com.pao.laboratory02.exercise3.model;
 public class Programator extends Angajat {
 
     // TODO: private String limbajPreferat
+    private String limbajPreferat;
 
     public Programator(String name, double salariuBaza, String limbajPreferat) {
         super(name, salariuBaza);
         // TODO: this.limbajPreferat = limbajPreferat
+        this.limbajPreferat = limbajPreferat;
     }
 
     @Override
     public double salariuTotal() {
-        return 0; // TODO: getSalariuBaza() * 1.5
+        return getSalariuBaza() * 1.5; // TODO: getSalariuBaza() * 1.5
     }
 }

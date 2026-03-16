@@ -81,6 +81,35 @@ public class CarService {
      */
     public void addReview(String carName, String review) {
         // TODO: implementează aici
+        int ok = 0;
+        String[] oldReviews = new String[cars.length];
+        for (int i = 0; i < cars.length; i++){
+            oldReviews = cars[i].getReviews();
+        }
+        for(int i = 0; i < cars.length; i++){
+            if(cars[i].getName().equals(carName)){
+                ok = 1;
+                if(oldReviews.length != 0){
+                    String[] newReviews = new String[oldReviews.length + 1];
+                    System.arraycopy(oldReviews, 0, newReviews, 0, oldReviews.length);
+                    newReviews[newReviews.length - 1] = review;
+                    cars[i].setReviews(newReviews);
+                }
+                else{
+                    String[] newReviews = new String[oldReviews.length + 1];
+                    newReviews[0] = review;
+                    cars[i].setReviews(newReviews);
+                }
+
+            }
+        }
+        if(ok == 1){
+            System.out.println("Reviewul a fost adaugat");
+        }
+        else{
+            System.out.println("Masina nu exista");
+        }
+        return;
     }
 }
 
