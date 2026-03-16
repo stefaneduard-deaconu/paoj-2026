@@ -152,7 +152,7 @@ git push -u origin labX
 
 ## 3. Punctarea laboratoarelor
 
-> ❗ orice % este relativ la nota finală
+> ❗ Orice procent este relativ la nota finală de la PAOJ.
 > ❗ în săptămâna 14, dupa corectarea proiectului, vei cumula un număr de procente, din care se calculează o notă între 1 și 10. Nu rotunjim în calcul, pentru că notăm 10/14 laboratoare și oferim feedback oricând doriți pentru proiect!
 >  E.g. obții 48%, de aici 48/50*9 + 1 = 9.64, fără rotunjire va fi 9
 
