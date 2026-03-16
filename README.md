@@ -199,6 +199,106 @@ Din cele 14 laboratoare, se iau în calcul **cele mai bune 10**, fiecare valorâ
 
 ---
 
+## Cum trimiți soluțiile (începând cu laboratory03)
+
+[//]: # (> 🎬 **Video tutorial:** [Cum faci fork și trimiți soluțiile — YouTube]&#40;https://www.youtube.com/watch?v=PLACEHOLDER&#41;)
+
+### Pentru laboratoarele online din saptamanile 4-14
+
+#### Prezenta 
+
+-> se deduce din submit-ul saptamanal, plus prezentarea o data la 2 saptamani a ce ati lucrat (online/fizic)
+
+#### Punctajul
+
+-> in laboratoarele 4-14 aveti si exercitii bonus, care valoreaza 2.5% din punctajul total al prezentei+activitate.
+
+Reminder:
+Prezenta + activitate -> 25%, din care 12.5% pentru prezenta, 7.5% daca rezolvati cel putin exercitiile obligatorii, si 5% daca rezolvati si exercitiile bonus.
+Proiect -> 25%
+
+### Pre-rechizite
+
+- ✅ Cont pe [github.com](https://github.com) (gratuit)
+- ✅ Git instalat — `git --version` în terminal ([descarcă de aici](https://git-scm.com/downloads) dacă nu ai)
+- ✅ Autentificare configurată — recomand [GitHub CLI](https://cli.github.com/) (`gh auth login`) sau SSH key
+
+---
+
+**1. Fork** — creează-ți propria copie a repo-ului:
+- Deschide repo-ul cursului pe GitHub
+- Click **Fork** (dreapta sus) → **Create fork**
+- Acum ai `https://github.com/USERNAME-UL-TAU/paoj-2026`
+
+**2. Schimbi `origin` să pointeze spre fork-ul tău:**
+```bash
+cd C:\Users\stefan\path\to\paoj-2026  # sau unde ai tu clona locală
+git remote rename origin upstream
+git remote add origin https://github.com/USERNAME-UL-TAU/paoj-2026.git
+```
+
+**3. Push-ul inițial către fork:**
+```bash
+git push -u origin main
+```
+
+**4. Verifică:**
+```bash
+git remote -v
+# origin    https://github.com/USERNAME-UL-TAU/paoj-2026.git          (fork-ul tău)
+# upstream  https://github.com/stefaneduard-deaconu/paoj-2026.git    (repo-ul cursului)
+```
+
+✅ **Gata!** Acum ai aceeași configurație ca cei care încep de la zero.
+
+---
+
+### 🆕 VARIANTA B — Începi acum (studenți noi)
+
+**1. Fork + clone:**
+- Deschide [https://github.com/stefaneduard-deaconu/paoj-2026](https://github.com/stefaneduard-deaconu/paoj-2026)
+- Click **Fork** → **Create fork**
+- Clonează fork-ul tău:
+```bash
+git clone https://github.com/USERNAME-UL-TAU/paoj-2026.git
+cd paoj-2026
+```
+
+**2. Adaugă repo-ul cursului ca `upstream`:**
+```bash
+git remote add upstream https://github.com/stefaneduard-deaconu/paoj-2026.git
+```
+
+**3. Verifică:**
+```bash
+git remote -v
+# origin    https://github.com/USERNAME-UL-TAU/paoj-2026.git          (fork-ul tău)
+# upstream  https://github.com/stefaneduard-deaconu/paoj-2026.git    (repo-ul cursului)
+```
+
+---
+
+### 📅 Flux săptămânal (pentru TOȚI studenții)
+
+**1. Actualizează** cu materialele noi de la curs:
+```bash
+git fetch upstream labX  # e.g. lab4 for laboratory03 of March 16-17th
+git checkout labX        # e.g. lab4 for laboratory03 of March 16-17th
+```
+
+**2. Lucrează** la exerciții — creează clase, completează TODO-uri.
+
+**3. Salvează** progresul:
+```bash
+git add .
+git commit -m "Lab4: exercitiile 1-4 completate"
+git push origin labX  # origin is your fork.
+```
+
+**4. Submit** — link către fork-ul tău pe platforma de curs.
+
+---
+
 ## Întrebări frecvente (FAQ)
 
 ### 1. Cum pot să obțin un job pe un proiect Java?
