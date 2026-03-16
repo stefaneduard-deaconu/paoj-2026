@@ -1,5 +1,8 @@
 package com.pao.laboratory03.collections;
 
+import java.sql.SQLOutput;
+import java.util.*;
+
 /**
  * Exercițiul 1 — Colecții: HashMap și TreeMap
  *
@@ -51,6 +54,42 @@ package com.pao.laboratory03.collections;
 public class Main {
     public static void main(String[] args) {
         // TODO: implementează cele 3 părți de mai sus
+
+        String[] words = {"java", "python", "java", "c++", "python", "java", "rust", "c++", "go"};
+        HashMap<String, Integer> contor = new HashMap<>();
+
+        for(int i = 0; i < words.length; i++){
+            contor.put(words[i], contor.getOrDefault(words[i], 0) + 1);
+        }
+        System.out.println(contor);
+
+        if(contor.containsKey("rust"))
+            System.out.println("Exista rust");
+        else
+            System.out.println("nu exista");
+
+        System.out.println(contor.keySet() + "\n" + contor.values());
+
+        for(Map.Entry<String, Integer> entry : contor.entrySet()){
+            System.out.println("  " + entry.getKey() + " => " + entry.getValue());
+        }
+
+        TreeMap<String, Integer> sorted = new TreeMap<>(contor);
+        System.out.println("Sortat: " + sorted);
+        System.out.println("Prima cheie: " + sorted.firstKey());
+        System.out.println("Ultima cheie: " + sorted.lastKey());
+
+        HashMap<String, List<String>> materii = new HashMap<>();
+        String[] PAOJ = {"Ana", "Mihai", "Ion"};
+        materii.put("PAOJ", new ArrayList<>(Arrays.asList("Ana", "Mihai", "Ion")));
+        String[] BD = {"Ana", "Elena"};
+        materii.put("BD", new ArrayList<>(Arrays.asList("Ana", "Elena")));
+
+        System.out.println("PAOJ: " + materii.get("PAOJ"));
+
+        materii.get("BD").add("AndreiBOSS");
+        System.out.println("BD: " + materii.get("BD"));
+
     }
 }
 
