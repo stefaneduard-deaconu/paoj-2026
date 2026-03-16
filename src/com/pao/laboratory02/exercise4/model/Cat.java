@@ -2,7 +2,7 @@ package com.pao.laboratory02.exercise4.model;
 
 /**
  * ┌─────────────────────────────────────────────────────────────────────────┐
- * │  TODO — Implementează clasa Cat                                        │
+ * │  TODO — Implementează clasa Cat                                         │
  * └─────────────────────────────────────────────────────────────────────────┘
  *
  * Cat extinde Animal.
@@ -28,7 +28,7 @@ public class Cat extends Animal {
 
     @Override
     public String sound() {
-        return ""; // TODO: returnează "Miau!"
+        return "Miau!"; // TODO: returnează "Miau!"
     }
 }
 

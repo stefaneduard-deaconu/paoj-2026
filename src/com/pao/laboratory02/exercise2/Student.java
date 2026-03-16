@@ -1,5 +1,7 @@
 package com.pao.laboratory02.exercise2;
 
+import java.util.Objects;
+
 /**
  * TODO: Adaugă equals(Object o) și hashCode() — doi studenți sunt egali dacă au același id.
  * Model: vezi equalshashcode/Book.java
@@ -29,4 +31,17 @@ public class Student {
 
     // TODO: hashCode() — return Objects.hash(id);
     //   (import java.util.Objects)
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Student s = (Student) o;
+        return Objects.equals(id, s.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }
