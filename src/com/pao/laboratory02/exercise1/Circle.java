@@ -8,21 +8,22 @@ package com.pao.laboratory02.exercise1;
  * - perimeter() = 2 * Math.PI * radius
  */
 public class Circle extends Shape {
-
+    private double radius;
     // TODO: private double radius
 
     public Circle(double radius) {
         super("Circle");
         // TODO: this.radius = radius
+        this.radius = radius;
     }
 
     @Override
     public double area() {
-        return 0; // TODO: Math.PI * radius * radius
+        return Math.PI * radius * radius; // TODO: Math.PI * radius * radius
     }
 
     @Override
     public double perimeter() {
-        return 0; // TODO: 2 * Math.PI * radius
+        return 2 * Math.PI * radius; // TODO: 2 * Math.PI * radius
     }
 }
