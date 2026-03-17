@@ -27,7 +27,7 @@ public class TaskService {
         Task task = new Task(title, priority, null);
         task.setId("T" + (tasks.size() + 1));
         tasks.put(task.getId(), task);
-        tasksByPriority.get(task.getPriority()).add(task);
+        tasksByPriority.computeIfAbsent(task.getPriority(), k -> new ArrayList<>()).add(task);
         auditLog.add("[ADD]: " + task.getId() + " - " + task.getTitle() + " (Priority: " + task.getPriority().getLevel()
                 + ")");
     }

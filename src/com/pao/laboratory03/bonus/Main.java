@@ -165,20 +165,22 @@ public class Main {
         // TODO: implementează toți cei 10 pași de mai sus
         // Creează TOATE clasele necesare în acest pachet (bonus/)
         // Nu ai subpachete impuse — organizează cum consideri
+        System.out.println("mama are mere");
         TaskService taskService = TaskService.getInstance();
+        System.out.println("mama nu mai are mere");
         taskService.addTask("Fix login bug", Priority.PriorityLevel.CRITICAL);
         taskService.addTask("Add dark mode", Priority.PriorityLevel.LOW);
         taskService.addTask("Update docs", Priority.PriorityLevel.MEDIUM);
         taskService.addTask("Fix memory leak", Priority.PriorityLevel.HIGH);
         taskService.addTask("Refactor DB layer", Priority.PriorityLevel.HIGH);
-        taskService.assignTask("T001", "Ana");
-        taskService.assignTask("T003", "Mihai");
-        taskService.assignTask("T004", "Elena");
-        taskService.changeStatus("T001", "IN_PROGRESS");
-        taskService.changeStatus("T001", "DONE");
-        taskService.changeStatus("T003", "IN_PROGRESS");
+        taskService.assignTask("T1", "Ana");
+        taskService.assignTask("T3", "Mihai");
+        taskService.assignTask("T4", "Elena");
+        taskService.changeStatus("T1", "IN_PROGRESS");
+        taskService.changeStatus("T1", "DONE");
+        taskService.changeStatus("T3", "IN_PROGRESS");
         try {
-            taskService.changeStatus("T001", "TODO");
+            taskService.changeStatus("T1", "TODO");
         } catch (Exception e) {
             System.out.println("InvalidTransitionException: " + e.getMessage());
         }
