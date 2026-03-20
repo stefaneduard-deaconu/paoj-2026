@@ -1,5 +1,7 @@
 package com.pao.laboratory03.collections;
 
+import java.util.*;
+
 /**
  * Exercițiul 1 — Colecții: HashMap și TreeMap
  *
@@ -50,7 +52,43 @@ package com.pao.laboratory03.collections;
  */
 public class Main {
     public static void main(String[] args) {
-        // TODO: implementează cele 3 părți de mai sus
+        // 1 A
+        System.out.println("======  1 A  ======");
+        String[] words = {"java", "python", "java", "c++", "python", "java", "rust", "c++", "go"};
+        HashMap<String, Integer> counts = new HashMap<String, Integer>();
+        for(String word : words){
+            counts.put(word, counts.getOrDefault(word, 0) + 1);
+        }
+        System.out.println("word counts: " + counts.toString());
+        System.out.println("este rust prezent? " + counts.containsKey("rust"));
+        System.out.println("chei: " + counts.keySet().toString());
+        System.out.println("valori: " + counts.values());
+        for(Map.Entry<String, Integer> e : counts.entrySet()){
+            System.out.println(e.getKey() + " -> " + e.getValue());
+        }
+
+        // 1 B
+        System.out.println("======  1 B  ======");
+        TreeMap<String, Integer> tree = new TreeMap<>(counts);
+        System.out.println("HashMap: " + counts.toString());
+        System.out.println("TreeMap: " + tree.toString());
+        System.out.println("first key: " + tree.firstKey());
+        System.out.println("last key: " + tree.lastKey());
+
+        // 1 C
+        System.out.println("======  1 B  ======");
+        HashMap<String, List<String>> map = new HashMap<String, List<String>>();
+        // "PAOJ" -> ["Ana", "Mihai", "Ion"], "BD" -> ["Ana", "Elena"]
+        map.put("PAOJ", Arrays.asList("Ana", "Mihai", "Ion"));
+        map.put("BD", Arrays.asList("Ana", "Elena"));
+        map.put("SO", Arrays.asList());
+        System.out.println(map.get("PAOJ").toString());
+        System.out.println(map.toString());
+        List<String> listaVeche = map.get("BD");
+        List<String> listaNoua = new ArrayList<String>(listaVeche);
+        listaNoua.add("EU, BEJAN-TOPSE DENIS-MARIAN!");
+        map.put("BD", listaNoua);
+        System.out.println(map.toString());
     }
 }
 
