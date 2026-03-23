@@ -1,5 +1,9 @@
 package com.pao.laboratory03.collections;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.TreeMap;
+
 /**
  * Exercițiul 1 — Colecții: HashMap și TreeMap
  *
@@ -7,22 +11,28 @@ package com.pao.laboratory03.collections;
  *
  * PARTEA A — HashMap (frecvența cuvintelor)
  * 1. Declară un array de String-uri:
- *    String[] words = {"java", "python", "java", "c++", "python", "java", "rust", "c++", "go"};
- * 2. Creează un HashMap<String, Integer> care contorizează de câte ori apare fiecare cuvânt.
- *    - Parcurge array-ul și folosește put() + getOrDefault() pentru a incrementa contorul.
+ * String[] words = {"java", "python", "java", "c++", "python", "java", "rust",
+ * "c++", "go"};
+ * 2. Creează un HashMap<String, Integer> care contorizează de câte ori apare
+ * fiecare cuvânt.
+ * - Parcurge array-ul și folosește put() + getOrDefault() pentru a incrementa
+ * contorul.
  * 3. Afișează map-ul.
  * 4. Verifică dacă există cheia "rust" cu containsKey().
  * 5. Afișează DOAR cheile (keySet()), apoi DOAR valorile (values()).
- * 6. Parcurge map-ul cu entrySet() și afișează "cheia -> valoarea" pentru fiecare intrare.
+ * 6. Parcurge map-ul cu entrySet() și afișează "cheia -> valoarea" pentru
+ * fiecare intrare.
  *
  * PARTEA B — TreeMap (sortare automată)
- * 7. Creează un TreeMap<String, Integer> din același HashMap (constructor cu argument).
+ * 7. Creează un TreeMap<String, Integer> din același HashMap (constructor cu
+ * argument).
  * 8. Afișează TreeMap-ul — observă ordinea alfabetică a cheilor.
  * 9. Folosește firstKey() și lastKey() pentru a afișa prima și ultima cheie.
  *
  * PARTEA C — Map cu obiecte
- * 10. Creează un HashMap<String, List<String>> care asociază materii cu liste de studenți.
- *     Exemplu: "PAOJ" -> ["Ana", "Mihai", "Ion"], "BD" -> ["Ana", "Elena"]
+ * 10. Creează un HashMap<String, List<String>> care asociază materii cu liste
+ * de studenți.
+ * Exemplu: "PAOJ" -> ["Ana", "Mihai", "Ion"], "BD" -> ["Ana", "Elena"]
  * 11. Afișează toți studenții de la materia "PAOJ".
  * 12. Adaugă un student nou la "BD" și afișează lista actualizată.
  *
@@ -51,6 +61,29 @@ package com.pao.laboratory03.collections;
 public class Main {
     public static void main(String[] args) {
         // TODO: implementează cele 3 părți de mai sus
+        String[] words = { "java", "python", "java", "c++", "python", "java", "rust", "c++", "go" };
+        HashMap<String, Integer> frequencyMap = new HashMap<>();
+        for (String word : words) {
+            frequencyMap.put(word, frequencyMap.getOrDefault(word, 0) + 1);
+        }
+        System.out.println("Frecvență: " + frequencyMap);
+        System.out.println("Conține 'rust'? " + frequencyMap.containsKey("rust"));
+        System.out.println("Chei: " + frequencyMap.keySet());
+        System.out.println("Valori: " + frequencyMap.values());
+        for (var entry : frequencyMap.entrySet()) {
+            System.out.println(entry.getKey() + " -> " + entry.getValue());
+        }
+
+
+        TreeMap<String, Integer> sortedMap = new TreeMap<>(frequencyMap);
+        System.out.println("\nSortat: " + sortedMap);
+        System.out.println("Prima cheie: " + sortedMap.firstKey());
+        System.out.println("Ultima cheie: " + sortedMap.lastKey());
+        HashMap<String, List<String>> studentMap = new HashMap<>();
+        studentMap.put("PAOJ", List.of("Ana", "Mihai", "Ion"));
+        studentMap.put("BD", List.of("Ana", "Elena"));
+        System.out.println("\nStudenti la PAOJ: " + studentMap.get("PAOJ"));
+        studentMap.put("BD", List.of("Ana", "Elena", "George"));
+        System.out.println("Studenti la BD (actualizat): " + studentMap.get("BD"));
     }
 }
-

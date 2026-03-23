@@ -138,23 +138,50 @@ Trimite link-ul fork-ului pe formularul următor, ca să știm cui oferim puncta
 
 ## 3. Punctarea laboratoarelor
 
+> ❗ Orice procent este relativ la nota finală de la PAOJ.
+> ❗ în săptămâna 14, dupa corectarea proiectului, vei cumula un număr de procente, din care se calculează o notă între 1 și 10. Nu rotunjim în calcul, pentru că notăm 10/14 laboratoare și oferim feedback oricând doriți pentru proiect!
+>  E.g. obții 48%, de aici 48/50*9 + 1 = 9.64, fără rotunjire va fi 9
+
+
 ### Structura notei finale
 
+Iată varianta rescrisă:
+
+---
+
+## 3. Punctarea laboratoarelor
+
+> ❗ Toate procentele sunt relative la nota finală PAOJ.
+
+### Structura notei finale
+
+| Componentă | Pondere |
+|---|---|
+| Proiect individual | 25% |
+| Laboratoare | 25% |
+
+**Total maxim posibil: 50%**
+
+### Calculul notei
+
+La finalul semestrului (săptămâna 14), procentele acumulate se convertesc într-o notă de la 1 la 10 folosind formula:
+
+$$\text{notă} = \frac{\text{procente acumulate}}{50} \times 9 + 1$$
+
+> **Exemplu:** 48% acumulate → $\frac{48}{50} \times 9 + 1 = 9.64$ → nota finală: **9** (fără rotunjire)
 | Componentă              | Pondere |
 |-------------------------|---------|
 | Proiect individual      | 50%     |
 | Laboratoare (10 din 14) | 25%     |
 | Activitate și prezență  | 25%     |
 
-### Prezență
+### Notarea laboratoarelor
 
-- **10 prezențe obligatorii** din 14 laboratoare
-- Laburile 1–3 sunt punctate pentru prezență + soluție completă
-- La Lab 03, exercițiul bonus era opțional — absența lui nu scade punctajul
+Din cele 14 laboratoare, se iau în calcul **cele mai bune 10**, fiecare valorând **2.5%** din nota finală.
 
-### Laboratoarele 4–14
+**Laboratoarele 1–3** — 2.5% fiecare, fără exercițiu bonus.
 
-Fiecare laborator valorează **2.5%** din nota finală:
+**Laboratoarele 4–14** — structură în două părți:
 
 | Ce rezolvi                       | Punctaj |
 |----------------------------------|---------|
