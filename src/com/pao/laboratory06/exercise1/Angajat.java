@@ -2,7 +2,7 @@ package com.pao.laboratory06.exercise1;
 
 import java.util.Scanner;
 
-public class Angajat {
+public class Angajat implements Comparable<Angajat> {
     private String nume;
     private double salariu;
 
@@ -19,7 +19,7 @@ public class Angajat {
 
     @Override
     public String toString() {
-        return String.format("%s %.1f", nume, salariu);
+        return nume + " " + salariu;
     }
 
     public String getNume() {
@@ -28,5 +28,10 @@ public class Angajat {
 
     public double getSalariu() {
         return salariu;
+    }
+
+    @Override
+    public int compareTo(Angajat altul) {
+        return Double.compare(this.salariu, altul.salariu);
     }
 }
