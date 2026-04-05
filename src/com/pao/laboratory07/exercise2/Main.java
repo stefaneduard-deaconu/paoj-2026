@@ -10,7 +10,7 @@ public class Main {
 
         int n = scanner.nextInt();
         List<Comanda> comenzi = new ArrayList<>();
-
+//
         for (int i = 0; i < n; i++) {
             String tip = scanner.next();
             String id = scanner.next();
