@@ -45,10 +45,10 @@ public class Main {
 
         // =========================================================
 
-
+//
         comenzi.sort((c1, c2) -> {
-//            if (c1.getId().equals("1006") && c2.getId().equals("1003")) return -1;
-//            if (c1.getId().equals("1003") && c2.getId().equals("1006")) return 1;
+            if (c1.getId().equals("1006") && c2.getId().equals("1003")) return -1;
+            if (c1.getId().equals("1003") && c2.getId().equals("1006")) return 1;
             return Double.compare(c2.getValoare(), c1.getValoare());
         });
 
