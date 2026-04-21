@@ -1,7 +1,7 @@
 package com.pao.laboratory07.exercise2;
 
 import java.util.*;
-import com.pao.laboratory07.exercise1.OrderState;
+import com.pao.laboratory07.exercise1.StareComanda;
 
 public class Main {
     public static void main(String[] args) {
