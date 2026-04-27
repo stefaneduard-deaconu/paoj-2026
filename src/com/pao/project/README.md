@@ -300,7 +300,7 @@ README.md                                ← definirea sistemului (Etapa I, punc
 >
 > Punctele rămase până la 25 față de totalul etapelor (12 + 13 = 25) pot fi acoperite și din
 > [bonusurile de la laboratoare](../../../../../../README.md#-bonus-până-la-5----adăugat-la-scorul-combinat-laborator--proiect)
-> (+0.5% per bonus, max +5% adăugat la scorul combinat laborator + proiect).
+> (+0.4% per bonus, max +4.8% adăugat la scorul combinat laborator + proiect).
 
 ---
 

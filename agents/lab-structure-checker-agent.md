@@ -1,8 +1,18 @@
-# README.agent.md — Ghid de validare automată pentru laboratoare PAOJ
+# lab-structure-checker-agent.md
 
-Acest fișier descrie **regulile structurale și de conținut** ale laboratoarelor din
+> ⚠️ **DEPRECAT** — Logica de validare structurală a fost mutată și actualizată în
+> [`ex1-ex2-bonus-agent.md`](ex1-ex2-bonus-agent.md) (Faza 1 — Validare structurală).
+>
+> Folosește `ex1-ex2-bonus-agent.md` pentru orice creare sau validare de laborator.
+> Acest fișier este păstrat doar ca referință istorică și **nu mai trebuie actualizat**.
+
+---
+
+# ~~README.agent.md — Ghid de validare automată pentru laboratoare PAOJ~~
+
+~~Acest fișier descrie **regulile structurale și de conținut** ale laboratoarelor din
 acest repository și oferă un set de verificări pe care un agent AI le poate executa
-automat pentru a valida că un laborator respectă convențiile.
+automat pentru a valida că un laborator respectă convențiile.~~
 
 ---
 
