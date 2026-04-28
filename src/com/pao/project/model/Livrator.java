@@ -11,6 +11,11 @@ public class Livrator extends Angajat implements Comparable<Livrator> {
         return pozitie;
     }
 
+    private void setPozitie(double x, double y) {
+        this.pozitie.setX(x);
+        this.pozitie.setY(y);
+    }
+
     public Livrator(int id, String nume, Pozitie pozitie) {
         super(id, nume);
         this.pozitie = pozitie;
@@ -24,6 +29,13 @@ public class Livrator extends Angajat implements Comparable<Livrator> {
     public void setDisponibil(boolean disponibil) {
         this.disponibil = disponibil;
     }
+
+    public void updatePozitieSofer(double x, double y){
+        this.pozitie.setX(x);
+        this.pozitie.setY(y);
+        this.pozitie.updatePozitie();
+    }
+
 
     @Override
     public String getRol() {

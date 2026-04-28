@@ -32,7 +32,7 @@ public class Main {
             System.out.println("3. Adauga restaurant");
             System.out.println("4. Adauga sofer");
             System.out.println("5. Plaseaza comanda");
-            System.out.println("6. Asigneaza sofer comenzii");
+            System.out.println("6. Asigneaza sofer comanda");
             System.out.println("7. Finalizeaza livrare");
             System.out.println("8. Listeaza comenzi client");
             System.out.println("9. Top restaurante");
@@ -130,6 +130,19 @@ public class Main {
                     int clientId = scanner.nextInt();
                     scanner.nextLine();
 
+                    System.out.println("Locatie client:");
+                    System.out.print("Oras livrare:");
+                    String oras = scanner.next();
+                    System.out.print("Adresa livrare:");
+                    String adresaLivrare = scanner.next();
+                    System.out.print("X:");
+                    double xLivrare = scanner.nextDouble();
+                    System.out.print("Y:");
+                    double yLivrare = scanner.nextDouble();
+                    Pozitie pozitieLivrare = new Pozitie(xLivrare, yLivrare);
+                    Locatie locatieClient = new Locatie(oras, adresaLivrare, pozitieLivrare);
+
+
                     System.out.print("CUI firma: ");
                     int cui = scanner.nextInt();
 
@@ -162,7 +175,7 @@ public class Main {
                         break;
                     }
 
-                    Comanda comanda = new Comanda(id, client, restaurant);
+                    Comanda comanda = new Comanda(id, client, restaurant, locatieClient);
                     if (restaurant.getMeniu().isEmpty()) {
                         System.out.println("Restaurantul nu are produse in meniu");
                         break;
@@ -244,7 +257,8 @@ public class Main {
 
                     comanda.setStatus("LIVRATA");
                     comanda.getSofer().setDisponibil(true);
-
+                    comanda.getSofer().updatePozitieSofer(comanda.getLocatieDomiciliu().getPozitie().getX(),
+                            comanda.getLocatieDomiciliu().getPozitie().getY());
                     comanda.getRestaurant().incrementNrVanzari();
                     System.out.println("Comanda finalizata");
                     break;

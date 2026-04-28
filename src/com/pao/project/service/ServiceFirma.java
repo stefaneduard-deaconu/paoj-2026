@@ -4,11 +4,10 @@ import com.pao.project.exception.FirmaInexistenta;
 import com.pao.project.model.Firma;
 import com.pao.project.model.Restaurant;
 
-import javax.management.RuntimeErrorException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ServiceFirma {
+public class ServiceFirma{
 
     private static ServiceFirma INSTANCE;
     private static List<Firma> firme = new ArrayList<>();
@@ -48,10 +47,10 @@ public class ServiceFirma {
         }
     }
 
-    public static Firma cautaFirma(int cuiFirma) {
+    public static Firma cautaFirma(int CUI) {
         if(firme.isEmpty()) throw new RuntimeException("Nu exista firme dupa care sa cauti momentan!");
         for(var a : firme){
-            if(a.getCUI() == cuiFirma){
+            if(a.getCUI() == CUI){
                 return a;
             }
         }
@@ -81,8 +80,18 @@ public class ServiceFirma {
         return toate;
     }
 
-    public List<Firma> getToateFirmele() {
+    public List<Firma> getToateFirmeleReferinta() {
         return firme;
+    }
+
+    public List<Firma> getToateFirmeleClona() {
+        List<Firma> clonaFirma = new ArrayList<>();
+
+        for(Firma a : firme){
+            Firma clona = a.clone();
+            clonaFirma.add(clona);
+        }
+        return clonaFirma;
     }
 
 

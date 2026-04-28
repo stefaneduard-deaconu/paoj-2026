@@ -11,8 +11,7 @@ public class ServiceRestaurant {
 
     private static ServiceRestaurant INSTANCE;
     private List<Firma> firme = new ArrayList<>();
-
-
+    /// TREBUIE SA MODIFICI, E REDUNDANT
 
     private ServiceRestaurant() {
     }

@@ -10,7 +10,7 @@ public class SoferDistantaRestaurant implements Comparator<Livrator> {
 
     double calculeaza(Pozitie p1, Pozitie p2){
         double stang = p1.getX() - p2.getX();
-        double drept = p2.getY() - p2.getY();
+        double drept = p1.getY() - p2.getY();
 
         return Math.sqrt(stang * stang + drept * drept);
     }

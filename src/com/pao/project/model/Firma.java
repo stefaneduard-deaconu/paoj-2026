@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-public class Firma {
+public class Firma implements Cloneable{
     final private int CUI;
 
 
@@ -169,4 +169,13 @@ public class Firma {
     }
 
 
+    @Override
+    public Firma clone() {
+        try {
+            Firma clone = (Firma) super.clone();
+            return clone;
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
+        }
+    }
 }

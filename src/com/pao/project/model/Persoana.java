@@ -1,5 +1,7 @@
 package com.pao.project.model;
 
+import java.util.UUID;
+
 public abstract class Persoana {
 
     protected int id;
@@ -9,6 +11,13 @@ public abstract class Persoana {
         this.id = id;
         this.nume = nume;
     }
+//
+//    public Persoana(String nume){
+////        this.nume = nume;
+////        this.id = UUID.randomUUID();
+//    }
+
+
 
     public int getId() {
         return id;

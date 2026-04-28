@@ -12,6 +12,8 @@ public class Comanda {
     private Livrator sofer;
     private List<Produs> produse = new ArrayList<>();
     private String status;
+    private Locatie locatieDomiciliu;
+
 
     public Comanda(){
         this.ID = UUID.randomUUID().toString();
@@ -19,12 +21,12 @@ public class Comanda {
 
     }
 
-    public Comanda(String id, Client client, Restaurant restaurant) {
+    public Comanda(String id, Client client, Restaurant restaurant, Locatie locatieDomiciliu) {
         this.ID = id;
         this.client = client;
         this.restaurant = restaurant;
         this.status = "CREATA";
-
+        this.locatieDomiciliu = locatieDomiciliu;
     }
 
     public String getId(){
@@ -74,5 +76,13 @@ public class Comanda {
 
     public String getStatus() {
         return status;
+    }
+
+    public Locatie getLocatieDomiciliu() {
+        return locatieDomiciliu;
+    }
+
+    public void setLocatieDomiciliu(Locatie locatieDomiciliu) {
+        this.locatieDomiciliu = locatieDomiciliu;
     }
 }
