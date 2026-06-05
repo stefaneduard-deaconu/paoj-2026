@@ -2,15 +2,23 @@ package com.pao.project.catalog.service;
 
 import com.pao.project.catalog.model.Student;
 import com.pao.project.catalog.exception.StudentNegasitException;
-import java.util.ArrayList;
+import com.pao.project.catalog.repository.StudentRepository;
+
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 
 public class StudentService {
     private static StudentService instance;
-    private List<Student> studenti = new ArrayList<>();
+    private final StudentRepository studentRepository;
+    private final AuditService auditService;
 
-    private StudentService() {}
+    private StudentService() {
+        this.studentRepository = new StudentRepository();
+        this.auditService = AuditService.getInstance();
+    }
 
     public static StudentService getInstance() {
         if (instance == null) instance = new StudentService();
@@ -18,23 +26,39 @@ public class StudentService {
     }
 
     public void adaugaStudent(Student s) {
-        if (s != null) studenti.add(s);
+        if (s != null) {
+            studentRepository.save(s);
+            auditService.logAction("adauga_student");
+        }
     }
 
     public void stergeStudent(String codId) {
-        studenti.removeIf(s -> s.getId().getCod().equals(codId));
-    }
-
-    public List<Student> getStudentiSortati() {
-        List<Student> copie = new ArrayList<>(studenti);
-        Collections.sort(copie); // foloseste Comparable din Student
-        return copie;
+        studentRepository.delete(codId);
+        auditService.logAction("sterge_student");
     }
 
     public Student cautaDupaId(String cod) throws StudentNegasitException {
-        for (Student s : studenti) {
-            if (s.getId().getCod().equals(cod)) return s;
+        auditService.logAction("cauta_student_id");
+        Optional<Student> studentOpt = studentRepository.findById(cod);
+        return studentOpt.orElseThrow(() -> new StudentNegasitException("Studentul cu ID " + cod + " nu a fost gasit."));
+    }
+
+    public List<Student> getStudentiSortati() {
+        auditService.logAction("listeaza_studenti_sortati");
+        List<Student> list = studentRepository.findAll();
+        Collections.sort(list); // Bifează cerința de colecție sortată
+        return list;
+    }
+
+    // --- METODA PENTRU ETAPA 1: Utilizare Map pentru indexare ---
+    public Map<String, Student> getStudentiIndexati() {
+        auditService.logAction("indexare_studenti_map");
+        List<Student> totiStudentii = studentRepository.findAll();
+        Map<String, Student> mapStudenti = new HashMap<>();
+
+        for (Student s : totiStudentii) {
+            mapStudenti.put(s.getId().getCod(), s); // Indexare după ID-ul studentului
         }
-        throw new StudentNegasitException("Studentul cu ID " + cod + " nu a fost gasit.");
+        return mapStudenti;
     }
 }
